@@ -31,6 +31,12 @@ let history = [];
  * Validerar formulärets inmatning.
  * @returns {boolean}
  */
+
+//EVENTLYSSNARE
+form.addEventListener("submit", validateForm);
+clearButton.addEventListener("click", clearForm);
+deleteHistoryButton.addEventListener("click", deleteHistory);
+
 function validateForm() {
   // Kontrollera formulärets obligatoriska fält
   // Visa eventuella felmeddelanden
