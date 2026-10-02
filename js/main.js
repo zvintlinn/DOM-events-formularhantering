@@ -31,9 +31,6 @@ let history = [];
  * Validerar formulärets inmatning.
  * @returns {boolean}
  */
-
-//INMATNINGSVÄRDEN
-
 //EVENTLYSSNARE
 form.addEventListener("submit", validateForm);
 clearButton.addEventListener("click", clearForm);
@@ -44,6 +41,7 @@ function validateForm(event) {
   // Visa eventuella felmeddelanden
   // Returnera resultatet (true eller false) av valideringen
   event.preventDefault();
+  createStudentCard();
 }
 
 /**
@@ -62,6 +60,11 @@ function createStudentCard() {
   // Uppdatera studentkortet
   // Lägg till studentkortet i historiken
   // Spara och uppdatera historiken
+  const name = fullnameInput.value.trim();
+  const email = emailInput.value.trim();
+  const tel = phoneInput.value.trim();
+  const font = fontSelect.value;
+  console.log(name, email, tel, font);
 }
 
 /**
