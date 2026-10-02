@@ -32,15 +32,18 @@ let history = [];
  * @returns {boolean}
  */
 
+//INMATNINGSVÄRDEN
+
 //EVENTLYSSNARE
 form.addEventListener("submit", validateForm);
 clearButton.addEventListener("click", clearForm);
 deleteHistoryButton.addEventListener("click", deleteHistory);
 
-function validateForm() {
+function validateForm(event) {
   // Kontrollera formulärets obligatoriska fält
   // Visa eventuella felmeddelanden
   // Returnera resultatet (true eller false) av valideringen
+  event.preventDefault();
 }
 
 /**
