@@ -1,7 +1,7 @@
 "use strict";
 /*
  * Laboration 5 - Studentkortsgenerator
- * Namn: DITT NAMN
+ * Namn: LINNEAH OLOFSSON
  */
 
 // Hämta element från DOM
