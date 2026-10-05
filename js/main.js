@@ -67,11 +67,13 @@ function validateForm(event) {
 function displayErrors() {
   // Rensa tidigare felmeddelanden
   // Skriv ut aktuella felmeddelanden till DOM
-  const liEl = document.createElement("li");
-  const textNode = document.createTextNode(errors);
+  for (let i = 0; i < errors.length; i++) {
+    const liEl = document.createElement("li");
+    const textNode = document.createTextNode(errors[i]);
 
-  liEl.appendChild(textNode);
-  errorList.appendChild(liEl);
+    liEl.appendChild(textNode);
+    errorList.appendChild(liEl);
+  }
 }
 
 /**
