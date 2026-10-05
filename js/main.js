@@ -55,7 +55,7 @@ function validateForm(event) {
   }
 
   errors.forEach((error) => {
-    console.log(error);
+    displayErrors(error);
   });
 
   createStudentCard();
@@ -71,7 +71,7 @@ function displayErrors() {
   const textNode = document.createTextNode(errors);
 
   liEl.appendChild(textNode);
-  errors.appendChild(liEl);
+  errorList.appendChild(liEl);
 }
 
 /**
