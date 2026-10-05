@@ -54,6 +54,10 @@ function validateForm(event) {
     errors.push("Du behöver ange ett telefonnummer");
   }
 
+  errors.forEach((error) => {
+    console.log(error);
+  });
+
   createStudentCard();
 }
 
@@ -63,6 +67,11 @@ function validateForm(event) {
 function displayErrors() {
   // Rensa tidigare felmeddelanden
   // Skriv ut aktuella felmeddelanden till DOM
+  const liEl = document.createElement("li");
+  const textNode = document.createTextNode(errors);
+
+  liEl.appendChild(textNode);
+  errors.appendChild(liEl);
 }
 
 /**
