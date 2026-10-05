@@ -37,6 +37,19 @@ function validateForm(event) {
   // Visa eventuella felmeddelanden
   // Returnera resultatet (true eller false) av valideringen
   event.preventDefault();
+
+  const name = fullnameInput.value.trim();
+  const email = emailInput.value.trim();
+  const tel = phoneInput.value.trim();
+
+  if (name.value === "") {
+  }
+
+  if (!email.value === "@") {
+  }
+
+  if (tel.value === "") {
+  }
   createStudentCard();
 }
 
@@ -60,7 +73,6 @@ function createStudentCard() {
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
   const font = fontSelect.value;
-  console.log(name, email, tel, font);
 }
 
 /**
