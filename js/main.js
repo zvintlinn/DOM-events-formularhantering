@@ -42,20 +42,24 @@ function validateForm(event) {
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
 
-  if (name === "") {
+  if (name.length === 0) {
     errors.push("Du behöver ange ett namn");
   }
 
-  if (email !== "@") {
+  if (email.length === 0) {
     errors.push("Du behöver ange en korrekt e-postadress");
   }
 
-  if (tel === "") {
+  if (tel.length === 0) {
     errors.push("Du behöver ange ett telefonnummer");
   }
 
   errors.forEach((error) => {
-    displayErrors(error);
+    const liEl = document.createElement("li");
+    const textNode = document.createTextNode(error);
+
+    liEl.appendChild(textNode);
+    errorList.appendChild(liEl);
   });
 
   createStudentCard();
@@ -67,13 +71,11 @@ function validateForm(event) {
 function displayErrors() {
   // Rensa tidigare felmeddelanden
   // Skriv ut aktuella felmeddelanden till DOM
-  for (let i = 0; i < errors.length; i++) {
-    const liEl = document.createElement("li");
-    const textNode = document.createTextNode(errors[i]);
+  const liEl = document.createElement("li");
+  const textNode = document.createTextNode(errors);
 
-    liEl.appendChild(textNode);
-    errorList.appendChild(liEl);
-  }
+  liEl.appendChild(textNode);
+  errorList.appendChild(liEl);
 }
 
 /**
