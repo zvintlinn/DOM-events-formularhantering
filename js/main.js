@@ -42,14 +42,18 @@ function validateForm(event) {
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
 
-  if (name.value === "") {
+  if (name === "") {
+    errors.push("Du behöver ange ett namn");
   }
 
-  if (!email.value === "@") {
+  if (email !== "@") {
+    errors.push("Du behöver ange en korrekt e-postadress");
   }
 
-  if (tel.value === "") {
+  if (tel === "") {
+    errors.push("Du behöver ange ett telefonnummer");
   }
+
   createStudentCard();
 }
 
