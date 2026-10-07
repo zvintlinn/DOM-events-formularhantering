@@ -33,11 +33,9 @@ let history = [];
  */
 
 function validateForm(event) {
-  // Kontrollera formulärets obligatoriska fält
-  // Visa eventuella felmeddelanden
-  // Returnera resultatet (true eller false) av valideringen
   event.preventDefault();
 
+  // Kontrollera formulärets obligatoriska fält
   errors.length = 0;
 
   if (fullnameInput.value.trim() === "") {
@@ -52,9 +50,14 @@ function validateForm(event) {
     errors.push("Du behöver ange ett telefonnummer");
   }
 
+  // Visa eventuella felmeddelanden
   displayErrors();
+
+  // Kontrollera formulärets obligatoriska fält
+  if ((errors.length = 0)) {
+    return true;
+  }
 }
-console.log(errors);
 
 /**
  * Visar felmeddelanden på sidan.
@@ -77,13 +80,13 @@ function displayErrors() {
  */
 function createStudentCard() {
   // Hämta information från formuläret
-  // Uppdatera studentkortet
-  // Lägg till studentkortet i historiken
-  // Spara och uppdatera historiken
   const name = fullnameInput.value.trim();
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
   const font = fontSelect.value;
+  // Uppdatera studentkortet
+  // Lägg till studentkortet i historiken
+  // Spara och uppdatera historiken
 }
 
 /**
@@ -126,17 +129,17 @@ function deleteHistory() {
 }
 
 // Eventlyssnare
-form.addEventListener("submit", validateForm);
-clearButton.addEventListener("click", clearForm);
-deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När formuläret skickas:
 // - validera inmatningen
+form.addEventListener("submit", validateForm);
 // - skapa studentkort om valideringen lyckas
 
 // När användaren klickar på "Rensa"
+clearButton.addEventListener("click", clearForm);
 
 // När användaren klickar på "Radera historik"
+deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
