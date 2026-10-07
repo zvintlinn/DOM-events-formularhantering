@@ -42,6 +42,8 @@ function validateForm(event) {
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
 
+  errors.length = 0;
+
   if (name.length === 0) {
     errors.push("Du behöver ange ett namn");
   }
@@ -55,7 +57,6 @@ function validateForm(event) {
   }
 
   displayErrors();
-  createStudentCard();
 }
 
 /**
