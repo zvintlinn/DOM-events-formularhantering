@@ -82,7 +82,11 @@ function createStudentCard() {
   const email = emailInput.value.trim();
   const tel = phoneInput.value.trim();
   const font = fontSelect.value;
+
   // Uppdatera studentkortet
+  previewFullname.textContent = name;
+  previewEmail.textContent = email;
+  previewPhone.textContent = tel;
   // Lägg till studentkortet i historiken
   // Spara och uppdatera historiken
 }
@@ -136,7 +140,7 @@ form.addEventListener("submit", function (event) {
   validateForm();
 
   if (validateForm() === true) {
-    console.log("hej");
+    createStudentCard();
   }
 });
 // - skapa studentkort om valideringen lyckas
