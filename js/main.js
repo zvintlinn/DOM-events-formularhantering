@@ -33,8 +33,6 @@ let history = [];
  */
 
 function validateForm(event) {
-  event.preventDefault();
-
   // Kontrollera formulärets obligatoriska fält
   errors.length = 0;
 
@@ -54,7 +52,7 @@ function validateForm(event) {
   displayErrors();
 
   // Kontrollera formulärets obligatoriska fält
-  if ((errors.length = 0)) {
+  if (errors.length === 0) {
     return true;
   }
 }
@@ -132,7 +130,15 @@ function deleteHistory() {
 
 // När formuläret skickas:
 // - validera inmatningen
-form.addEventListener("submit", validateForm);
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  validateForm();
+
+  if (validateForm() === true) {
+    console.log("hej");
+  }
+});
 // - skapa studentkort om valideringen lyckas
 
 // När användaren klickar på "Rensa"
