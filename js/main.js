@@ -64,6 +64,7 @@ function validateForm(event) {
  */
 function displayErrors() {
   // Rensa tidigare felmeddelanden
+  errorList.innerHTML = "";
   // Skriv ut aktuella felmeddelanden till DOM
   errors.forEach((error) => {
     const liEl = document.createElement("li");
