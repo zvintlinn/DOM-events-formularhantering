@@ -38,26 +38,23 @@ function validateForm(event) {
   // Returnera resultatet (true eller false) av valideringen
   event.preventDefault();
 
-  const name = fullnameInput.value.trim();
-  const email = emailInput.value.trim();
-  const tel = phoneInput.value.trim();
-
   errors.length = 0;
 
-  if (name.length === 0) {
+  if (fullnameInput.value.trim() === "") {
     errors.push("Du behöver ange ett namn");
   }
 
-  if (email.length === 0) {
+  if (emailInput.value.trim() === "") {
     errors.push("Du behöver ange en korrekt e-postadress");
   }
 
-  if (tel.length === 0) {
+  if (phoneInput.value.trim() === "") {
     errors.push("Du behöver ange ett telefonnummer");
   }
 
   displayErrors();
 }
+console.log(errors);
 
 /**
  * Visar felmeddelanden på sidan.
