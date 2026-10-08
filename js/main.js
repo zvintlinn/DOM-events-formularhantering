@@ -121,6 +121,11 @@ function saveHistory(name, email, phone, font) {
  */
 function loadHistory() {
   // Hämta eventuell sparad historik
+  const localStorageData = localStorage.getItem("users");
+  const users = JSON.parse(localStorageData);
+  if (users === null) {
+    history = [];
+  }
   // Uppdatera history
 }
 
