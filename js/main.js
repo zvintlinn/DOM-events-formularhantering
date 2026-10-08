@@ -109,7 +109,7 @@ function saveHistory(name, email, phone, font) {
     phone: phone,
     font: font,
   };
-  const localStorageData = localStorage.getItem("users");
+  const localStorageData = localStorage.getItem("cards");
   const users = JSON.parse(localStorageData);
   if (users === null) {
     history = [];
@@ -118,7 +118,7 @@ function saveHistory(name, email, phone, font) {
 
   const usersJson = JSON.stringify(history);
 
-  localStorage.setItem("users", usersJson);
+  localStorage.setItem("cards", usersJson);
 }
 
 /**
@@ -150,7 +150,7 @@ function clearForm() {
  */
 function deleteHistory() {
   // Radera sparad historik
-  localStorage.removeItem("users");
+  localStorage.removeItem("cards");
   // Uppdatera history och visningen på sidan
 }
 
