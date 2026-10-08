@@ -152,6 +152,7 @@ function clearForm() {
   previewEmail.textContent = "E-post";
   previewPhone.textContent = "Telefon";
   // Rensa eventuella felmeddelanden
+  errorList.innerHTML = "";
 }
 
 /**
