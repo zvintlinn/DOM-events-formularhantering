@@ -110,13 +110,13 @@ function saveHistory(name, email, phone, font) {
     font: font,
   };
 
-  loadHistory();
-
-  history.push(user);
+  history.unshift(user);
 
   const usersJson = JSON.stringify(history);
 
   localStorage.setItem("cards", usersJson);
+
+  loadHistory();
 }
 
 /**
