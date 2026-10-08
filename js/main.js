@@ -109,14 +109,13 @@ function saveHistory(name, email, phone, font) {
     phone: phone,
     font: font,
   };
+  loadHistory();
 
   history.unshift(user);
 
   const usersJson = JSON.stringify(history);
 
   localStorage.setItem("cards", usersJson);
-
-  loadHistory();
 }
 
 /**
@@ -130,6 +129,8 @@ function loadHistory() {
   // Uppdatera history
   if (cards === null) {
     history = [];
+  } else {
+    history = cards;
   }
 }
 
@@ -181,3 +182,4 @@ deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
+onload.addEventListener("onload", loadHistory);
