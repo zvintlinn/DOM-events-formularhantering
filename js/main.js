@@ -109,11 +109,9 @@ function saveHistory(name, email, phone, font) {
     phone: phone,
     font: font,
   };
-  const localStorageData = localStorage.getItem("cards");
-  const users = JSON.parse(localStorageData);
-  if (users === null) {
-    history = [];
-  }
+
+  loadHistory();
+
   history.push(user);
 
   const usersJson = JSON.stringify(history);
@@ -126,7 +124,13 @@ function saveHistory(name, email, phone, font) {
  */
 function loadHistory() {
   // Hämta eventuell sparad historik
+  const localStorageData = localStorage.getItem("cards");
+  const cards = JSON.parse(localStorageData);
+
   // Uppdatera history
+  if (cards === null) {
+    history = [];
+  }
 }
 
 /**
