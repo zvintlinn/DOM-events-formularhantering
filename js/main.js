@@ -93,6 +93,7 @@ function createStudentCard() {
   previewPhone.textContent = tel;
   previewPhone.style.fontFamily = font;
   // Lägg till studentkortet i historiken
+  loadHistory();
   saveHistory(name, email, tel, font);
   // Spara och uppdatera historiken
 }
@@ -108,7 +109,11 @@ function saveHistory(name, email, phone, font) {
     phone: phone,
     font: font,
   };
-
+  const localStorageData = localStorage.getItem("users");
+  const users = JSON.parse(localStorageData);
+  if (users === null) {
+    history = [];
+  }
   history.push(user);
 
   const usersJson = JSON.stringify(history);
@@ -121,11 +126,6 @@ function saveHistory(name, email, phone, font) {
  */
 function loadHistory() {
   // Hämta eventuell sparad historik
-  const localStorageData = localStorage.getItem("users");
-  const users = JSON.parse(localStorageData);
-  if (users === null) {
-    history = [];
-  }
   // Uppdatera history
 }
 
@@ -150,6 +150,7 @@ function clearForm() {
  */
 function deleteHistory() {
   // Radera sparad historik
+  localStorage.removeItem("users");
   // Uppdatera history och visningen på sidan
 }
 
