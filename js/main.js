@@ -194,10 +194,8 @@ function deleteHistory() {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  validateForm();
-
-  // - skapa studentkort om valideringen lyckas
   if (validateForm() === true) {
+    // - skapa studentkort om valideringen lyckas
     createStudentCard();
   }
 });
