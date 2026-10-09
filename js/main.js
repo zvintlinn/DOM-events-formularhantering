@@ -116,6 +116,8 @@ function saveHistory(name, email, phone, font) {
   const usersJson = JSON.stringify(history);
 
   localStorage.setItem("cards", usersJson);
+
+  renderHistory();
 }
 
 /**
@@ -139,7 +141,19 @@ function loadHistory() {
  */
 function renderHistory() {
   // Rensa tidigare visad historik
+
+  // historySection.innerHTML = "";
+
   // Skriv ut innehållet i history till DOM
+  for (let i = 0; i < history.length; i++) {
+    const sectionEl = document.createElement("section");
+
+    const pEl = document.createElement("p");
+    pEl.innerHTML = `${history[i].name}<br>${history[i].email}<br>${history[i].phone}`;
+
+    sectionEl.appendChild(pEl);
+    historySection.appendChild(sectionEl);
+  }
 }
 
 /**
@@ -162,6 +176,7 @@ function deleteHistory() {
   // Radera sparad historik
   localStorage.removeItem("cards");
   // Uppdatera history och visningen på sidan
+  historySection.innerHTML = "";
 }
 
 // Eventlyssnare
@@ -187,4 +202,5 @@ deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
-onload.addEventListener("onload", loadHistory);
+window.addEventListener("load", loadHistory);
+window.addEventListener("load", renderHistory);
