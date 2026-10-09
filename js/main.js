@@ -33,9 +33,10 @@ let history = [];
  */
 
 function validateForm() {
-  // Kontrollera formulärets obligatoriska fält
+  //Tömmer array
   errors.length = 0;
 
+  // Kontrollera formulärets obligatoriska fält
   if (fullnameInput.value.trim() === "") {
     errors.push("Du behöver ange ett namn");
   }
@@ -51,7 +52,7 @@ function validateForm() {
   // Visa eventuella felmeddelanden
   displayErrors();
 
-  // Kontrollera formulärets obligatoriska fält
+  // Returnerar true när inga felmeddelanden finns = alla fält är ifyllda
   if (errors.length === 0) {
     return true;
   }
@@ -60,9 +61,11 @@ function validateForm() {
 /**
  * Visar felmeddelanden på sidan.
  */
+
 function displayErrors() {
-  // Rensa tidigare felmeddelanden
+  // Rensa tidigare felmeddelanden - undviker dubletter
   errorList.innerHTML = "";
+
   // Skriv ut aktuella felmeddelanden till DOM
   errors.forEach((error) => {
     const liEl = document.createElement("li");
@@ -76,6 +79,7 @@ function displayErrors() {
 /**
  * Skapar ett studentkort och visar det på sidan.
  */
+
 function createStudentCard() {
   // Hämta information från formuläret
   const name = fullnameInput.value.trim();
@@ -92,33 +96,36 @@ function createStudentCard() {
 
   previewPhone.textContent = tel;
   previewPhone.style.fontFamily = font;
+
   // Lägg till studentkortet i historiken
-  loadHistory();
+  saveHistory(name, email, tel, font);
 
   // Spara och uppdatera historiken
-  saveHistory(name, email, tel, font);
+  renderHistory();
 }
 
 /**
  * Sparar historiken i localStorage.
  */
+
 function saveHistory(name, email, phone, font) {
-  // Spara history i localStorage
-  const user = {
+  //Deklarerar variabel för objekt på nytt
+  const student = {
     name: name,
     email: email,
     phone: phone,
     font: font,
   };
-  // loadHistory();
 
-  history.unshift(user);
+  //Laddar om tidigare historik från localstorage
+  loadHistory();
 
-  const usersJson = JSON.stringify(history);
+  // Spara ny history i localStorage
+  history.unshift(student);
 
-  localStorage.setItem("cards", usersJson);
+  const studentJson = JSON.stringify(history);
 
-  renderHistory();
+  localStorage.setItem("cards", studentJson);
 }
 
 /**
@@ -160,7 +167,6 @@ function renderHistory() {
     historySection.appendChild(sectionEl);
   }
 }
-
 /**
  * Rensar formulär, aktuellt studentkort och felmeddelanden.
  */
