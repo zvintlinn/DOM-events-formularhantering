@@ -147,11 +147,10 @@ function renderHistory() {
 
   // Skriv ut innehållet i history till DOM
   for (let i = 0; i < history.length; i++) {
-    const font = history[i].font;
     const sectionEl = document.createElement("section");
 
     const pEl = document.createElement("p");
-    pEl.style.fontFamily = font;
+    pEl.style.fontFamily = history[i].font;
     pEl.innerHTML = `${history[i].name}<br>${history[i].email}<br>${history[i].phone}`;
 
     sectionEl.appendChild(pEl);
