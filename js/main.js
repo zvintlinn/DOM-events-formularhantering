@@ -131,6 +131,7 @@ function saveHistory(name, email, phone, font) {
 /**
  * Läser in tidigare historik från localStorage.
  */
+
 function loadHistory() {
   // Hämta eventuell sparad historik
   const localStorageData = localStorage.getItem("cards");
@@ -147,9 +148,9 @@ function loadHistory() {
 /**
  * Visar historiken på sidan.
  */
-function renderHistory() {
-  // Rensa tidigare visad historik
 
+function renderHistory() {
+  // Rensa tidigare visad historik - förhindrar dubletter
   historySection.innerHTML = "";
 
   // Skriv ut innehållet i history till DOM
@@ -167,9 +168,11 @@ function renderHistory() {
     historySection.appendChild(sectionEl);
   }
 }
+
 /**
  * Rensar formulär, aktuellt studentkort och felmeddelanden.
  */
+
 function clearForm() {
   // Återställ formulär och studentkort
   form.reset();
@@ -179,6 +182,7 @@ function clearForm() {
   previewEmail.style.fontFamily = "";
   previewPhone.textContent = "Telefon";
   previewPhone.style.fontFamily = "";
+
   // Rensa eventuella felmeddelanden
   errorList.innerHTML = "";
 }
@@ -186,9 +190,11 @@ function clearForm() {
 /**
  * Raderar hela historiken.
  */
+
 function deleteHistory() {
   // Radera sparad historik
   localStorage.removeItem("cards");
+
   // Uppdatera history och visningen på sidan
   historySection.innerHTML = "";
 }
