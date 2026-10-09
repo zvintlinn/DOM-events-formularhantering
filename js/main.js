@@ -32,7 +32,7 @@ let history = [];
  * @returns {boolean}
  */
 
-function validateForm(event) {
+function validateForm() {
   // Kontrollera formulärets obligatoriska fält
   errors.length = 0;
 
