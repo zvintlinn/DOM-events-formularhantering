@@ -163,8 +163,11 @@ function clearForm() {
   // Återställ formulär och studentkort
   form.reset();
   previewFullname.textContent = "Namn";
+  previewFullname.style.fontFamily = "";
   previewEmail.textContent = "E-post";
+  previewEmail.style.fontFamily = "";
   previewPhone.textContent = "Telefon";
+  previewPhone.style.fontFamily = "";
   // Rensa eventuella felmeddelanden
   errorList.innerHTML = "";
 }
