@@ -148,6 +148,9 @@ function renderHistory() {
   // Skriv ut innehållet i history till DOM
   for (let i = 0; i < history.length; i++) {
     const sectionEl = document.createElement("section");
+    sectionEl.style.border = "1px solid #ccc";
+    sectionEl.style.margin = "5px";
+    sectionEl.style.padding = "5px";
 
     const pEl = document.createElement("p");
     pEl.style.fontFamily = history[i].font;
